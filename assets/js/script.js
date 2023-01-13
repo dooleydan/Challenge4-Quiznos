@@ -40,7 +40,6 @@ function startQuiz() {
     currentQuestionsIndex = 0
     questionContainerElement.classList.remove('hide')
     setNextQuestion()
-
 }
 
 function setNextQuestion() {
@@ -49,6 +48,24 @@ function setNextQuestion() {
 
 function ShowQuestion(question) {
     questionElement.innerText = question.question
+    question.answers.forEach(answer => {
+        const button = document.createElement('button')
+        button.innerText = answer.text
+        button.classList.add('btn')
+        if (answer.correct) {
+            button.dataset.correct('click', )
+        }
+        button.add('click', selectAnswer)
+        answerButtonsElement.appendChild(button)
+    })
+}
+
+function resetState() {
+    nextButton.classList.add('hide')
+    while (answerButtonsElement.firstChild){
+        answerButtonsElement.removeChild
+        (answerButtonsElement.firstChild)
+    }
 }
 
 function selectAnswer() {
